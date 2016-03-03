@@ -22,10 +22,12 @@ class ArtifactUploader(config: S3ConfigManager, s3: S3) extends BuildServerAdapt
       config.artifactBucket match {
         case None => report("Target artifactBucket was not set")
         case Some(bucket) =>
-          s3.upload(bucket, runningBuild, name, artifact).recover {
-            case NonFatal(e) =>
-              runningBuild.addBuildMessage(new BuildMessage1(DefaultMessagesInfo.SOURCE_ID, DefaultMessagesInfo.MSG_BUILD_FAILURE, Status.ERROR, new Date,
-                s"Error uploading artifacts: ${e.getMessage}"))
+          if (!name.startsWith(".teamcity")) {
+            s3.upload(bucket, runningBuild, name, artifact).recover {
+              case NonFatal(e) =>
+                runningBuild.addBuildMessage(new BuildMessage1(DefaultMessagesInfo.SOURCE_ID, DefaultMessagesInfo.MSG_BUILD_FAILURE, Status.ERROR, new Date,
+                  s"Error uploading artifacts: ${e.getMessage}"))
+            }
           }
       }
     }

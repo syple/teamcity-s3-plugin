@@ -15,7 +15,7 @@ class S3ConfigController(config: S3ConfigManager, webControllerManager: WebContr
     def param(name: String) = S3ConfigController.emptyAsNone(request.getParameter(name))
 
     config.updateAndPersist(S3Config(
-      param("artifactBucket"), param("buildManifestBucket"), param("tagManifestBucket"),
+      param("artifactBucket"),
       param("accessKey"), param("secretKey")
     ))
 

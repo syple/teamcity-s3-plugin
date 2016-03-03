@@ -10,7 +10,7 @@ import org.json4s.native.Serialization
 import org.json4s.native.Serialization._
 
 case class S3Config(
-  artifactBucket: Option[String], buildManifestBucket: Option[String], tagManifestBucket: Option[String],
+  artifactBucket: Option[String],
   awsAccessKey: Option[String], awsSecretKey: Option[String]
 )
 
@@ -26,9 +26,7 @@ class S3ConfigManager(paths: ServerPaths) extends AWSCredentialsProvider {
   }
 
   def artifactBucket: Option[String] = config.flatMap(_.artifactBucket)
-  def buildManifestBucket: Option[String] = config.flatMap(_.buildManifestBucket)
-  def tagManifestBucket: Option[String] = config.flatMap(_.tagManifestBucket)
-
+  
   private[teamcity] def update(config: S3Config): Unit = {
     this.config = Some(if (config.awsSecretKey.isEmpty && config.awsAccessKey == this.config.flatMap(_.awsAccessKey)) {
       config.copy(awsSecretKey = this.config.flatMap(_.awsSecretKey))
@@ -46,8 +44,6 @@ class S3ConfigManager(paths: ServerPaths) extends AWSCredentialsProvider {
 
   def details: Map[String, Option[String]] = Map(
     "artifactBucket" -> artifactBucket,
-    "buildManifestBucket" -> buildManifestBucket,
-    "tagManifestBucket" -> tagManifestBucket,
     "accessKey" -> config.flatMap(_.awsAccessKey)
   )
 
