@@ -10,7 +10,7 @@
     <vendor>
       <name>Syple Internal Tool</name>
       <url>https://github.com/syple/teamcity-s3-plugin</url>
-      <logo>https://avatars3.githubusercontent.com/u/3060152?v=3&s=200L</logo>
+      <logo>https://avatars3.githubusercontent.com/u/3060152?v=3&amp;s=200L</logo>
     </vendor>
   </info>
   <deployment use-separate-classloader="true" />
