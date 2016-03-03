@@ -15,7 +15,7 @@
     </repository>
   </repositories>
     <scm>
-        <developerConnection>scm:git:git@github.com:guardian/teamcity-s3-plugin.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:syple/teamcity-s3-plugin.git</developerConnection>
       <tag>HEAD</tag>
   </scm>
   <build>

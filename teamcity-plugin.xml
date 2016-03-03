@@ -6,11 +6,11 @@
     <version>@Version@</version>
     <description>Automatically uploads artifacts to S3</description>
     <download-url>Plugin download URL</download-url>
-    <email>Plugin author e-mail</email>
+    <email>hello@syple.com.au</email>
     <vendor>
-      <name>The Guardian</name>
-      <url>https://github.com/guardian/</url>
-      <logo>Plugin vendor logo URL</logo>
+      <name>Syple Internal Tool</name>
+      <url>https://github.com/syple/teamcity-s3-plugin</url>
+      <logo>https://avatars3.githubusercontent.com/u/3060152?v=3&s=200L</logo>
     </vendor>
   </info>
   <deployment use-separate-classloader="true" />
